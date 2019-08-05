@@ -6,6 +6,7 @@ import axios from 'axios';
 export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
 export const FAILURE = "FAILURE";
+export const ADD_SMURF = "ADD_SMURF";
 /*
   For this project you'll need at least 2 action creators for the main portion,
    and 2 more for the stretch problem.
@@ -16,10 +17,13 @@ export const FAILURE = "FAILURE";
    U - updateSmurf
    D - deleteSmurf
 */
+
+const url = 'http://localhost:3333/smurfs';
+
 export const getSmurfs = () => dispatch => {
   dispatch({ type: FETCHING });
   axios
-      .get('http://localhost:3333/smurfs')
+      .get(url)
       .then(response =>
           dispatch({ type: SUCCESS, payload: response.data.results}))
           
