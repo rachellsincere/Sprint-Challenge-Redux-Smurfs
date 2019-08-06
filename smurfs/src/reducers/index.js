@@ -4,7 +4,8 @@
 import {
   FETCHING,
   SUCCESS,
-  FAILURE
+  FAILURE,
+  ADD_SMURF
 } from "../actions";
 
 /*
@@ -51,6 +52,12 @@ export const reducer = (state = initialState, action) => {
         fetchingSmurfs: false,
         error: action.payload
 
+      }
+    case ADD_SMURF:
+      return {
+        ...state, 
+        fetchingSmurfs: false,
+        smurfs: action.payload
       }
   
     default:

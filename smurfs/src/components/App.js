@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Smurfs from './Smurfs';
+import CreateSmurf from './CreateSmurf';
 import './App.css';
 /*
  to wire this component up you're going to need a few things.
@@ -13,6 +14,7 @@ class App extends Component {
       <div className="App">
         <h1>Smurftown, USA</h1>
         <Smurfs />
+        <CreateSmurf />
       </div>
     );
   }
