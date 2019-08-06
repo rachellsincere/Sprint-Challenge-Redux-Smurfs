@@ -1,0 +1,32 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { getSmurfs } from '../actions';
+
+class Smurfs extends React.Component {
+    componentDidMount() {
+        this.props.getSmurfs();
+    }
+    render() {
+        return (
+            <div>
+                {this.props.smurfs.map(smurf =>
+                    <div>
+                        <h1>{smurf.name}</h1>
+                        <h3>{smurf.age}</h3>
+                        <h3>{smurf.height}</h3>
+                    </div>
+                )}
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        smurfs: state.smurfs,
+        fetchingSmurfs: state.fetchingSmurfs
+    };
+};
+
+export default connect(mapStateToProps, { getSmurfs })(Smurfs);
